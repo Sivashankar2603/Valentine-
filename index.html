@@ -1,146 +1,170 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Saranya 💖</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Saranya ❤️</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Noto+Serif+Tamil:wght@400;600&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      font-family: 'Poppins','Noto Serif Tamil', sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(135deg,#ff4e50,#f9d423);
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+/* Heart Rain */
+.heart{
+    position:fixed;
+    top:-10px;
+    color:rgba(255,255,255,0.8);
+    animation:fall linear infinite;
+    font-size:20px;
+}
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+        opacity:0;
     }
+}
 
-    .card {
-      max-width: 420px;
-      padding: 25px;
-      animation: fade 1.8s ease;
-    }
+/* Card */
+.card{
+    background:rgba(0,0,0,0.4);
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    width:90%;
+    max-width:380px;
+    z-index:10;
+    backdrop-filter:blur(6px);
+}
 
-    img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid rgba(255,255,255,0.6);
-      margin-bottom: 15px;
-    }
+/* Photo */
+.photo{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #fff;
+    margin-bottom:15px;
+}
 
-    h1 {
-      font-size: 2rem;
-      margin: 10px 0;
-    }
+/* Text */
+.title{
+    font-family:'Great Vibes', cursive;
+    font-size:38px;
+}
+.typing{
+    font-size:20px;
+    margin:10px 0;
+    min-height:28px;
+}
+.message{
+    font-size:15px;
+    margin-bottom:20px;
+}
 
-    .typing {
-      color: #fff3b0;
-      font-weight: 600;
-    }
+/* Buttons */
+.buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+button{
+    padding:10px 18px;
+    border:none;
+    border-radius:25px;
+    font-size:15px;
+    cursor:pointer;
+}
+.yes{
+    background:#ff4e50;
+    color:white;
+}
+.no{
+    background:white;
+    color:#ff4e50;
+}
+.no:hover{
+    position:absolute;
+    left:Math.random()*80+'%';
+}
 
-    p {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-top: 15px;
-      font-family: 'Noto Serif Tamil', serif;
-    }
-
-    .buttons {
-      margin-top: 25px;
-    }
-
-    button {
-      padding: 10px 22px;
-      border: none;
-      border-radius: 25px;
-      font-size: 1rem;
-      cursor: pointer;
-      margin: 8px;
-    }
-
-    .yes {
-      background: #fff;
-      color: #ff4d6d;
-      font-weight: 600;
-    }
-
-    .no {
-      background: transparent;
-      color: #fff;
-      border: 2px solid #fff;
-      position: relative;
-    }
-
-    @keyframes fade {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+/* Mobile Fix */
+@media(max-width:400px){
+    .title{font-size:32px;}
+}
+</style>
 </head>
 
 <body>
 
+<!-- MUSIC -->
+<audio autoplay loop>
+    <source src="tamil-song.mp3" type="audio/mpeg">
+</audio>
+
 <div class="card">
-  <!-- Saranya Photo -->
-  <img src="saranya.jpg" alt="Saranya">
+    <img src="saranya.jpg" class="photo" alt="Saranya">
 
-  <h1>Hey <span class="typing" id="typing"></span> 💖</h1>
+    <div class="title">My Love ❤️</div>
 
-  <p>
-    உன்ன பாக்குற ஒவ்வொரு நாளும்  
-    என் life ல ஒரு அழகான chapter மாதிரி feel ஆகுது…  
-    <br><br>
-    So… ஒரு simple question 😌
-  </p>
+    <div class="typing" id="typing"></div>
 
-  <p style="font-size:1.2rem;font-weight:600;">
-    Will you be my Valentine? 💘
-  </p>
+    <div class="message">
+        Un smile en life-oda favourite habit 😌  
+        Will you be my Valentine forever? 💖
+    </div>
 
-  <div class="buttons">
-    <button class="yes" onclick="yesClicked()">Yes 💖</button>
-    <button class="no" onmouseover="moveNo()">No 🙈</button>
-  </div>
+    <div class="buttons">
+        <button class="yes" onclick="yesClick()">YES 💍</button>
+        <button class="no">NO 🙈</button>
+    </div>
 </div>
 
 <script>
-  /* Typing Animation */
-  const text = "Saranya";
-  let i = 0;
-  function type() {
-    if (i < text.length) {
-      document.getElementById("typing").innerHTML += text.charAt(i);
-      i++;
-      setTimeout(type, 180);
+/* Typing Effect */
+const text = "Saranya 💕";
+let i = 0;
+function typing(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing,150);
     }
-  }
-  type();
+}
+typing();
 
-  /* Yes Button */
-  function yesClicked() {
-    document.body.innerHTML = `
-      <div style="text-align:center;color:white;font-family:Poppins">
-        <h1>Yayyy 💖🥰</h1>
-        <p style="font-size:1.3rem;">
-          You just made my world brighter, Saranya ✨
-        </p>
-      </div>`;
-  }
+/* Heart Rain */
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.animationDuration = Math.random()*3 + 2 + "s";
+    document.body.appendChild(heart);
 
-  /* No Button escape */
-  function moveNo() {
-    const btn = document.querySelector('.no');
-    btn.style.position = 'absolute';
-    btn.style.left = Math.random() * 70 + '%';
-    btn.style.top = Math.random() * 70 + '%';
-  }
+    setTimeout(()=>{heart.remove();},5000);
+}
+setInterval(createHeart,200);
+
+/* YES Button */
+function yesClick(){
+    alert("Aww ❤️ I Love You Saranya 😘");
+}
 </script>
 
 </body>

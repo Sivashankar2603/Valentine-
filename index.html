@@ -1,216 +1,146 @@
 <!DOCTYPE html>
 <html lang="ta">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For Saranya 💖</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Noto+Serif+Tamil:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
+      margin: 0;
       min-height: 100vh;
-      background: linear-gradient(135deg, #ff6a88, #ff99ac);
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: 'Poppins','Noto Serif Tamil', sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Poppins', 'Noto Serif Tamil', sans-serif;
-      color: #fff;
       text-align: center;
-      overflow: hidden;
+      color: #fff;
     }
 
-    .container {
+    .card {
       max-width: 420px;
-      padding: 24px;
-      animation: fadeIn 1.8s ease;
+      padding: 25px;
+      animation: fade 1.8s ease;
     }
 
-    .photo {
+    img {
       width: 160px;
       height: 160px;
-      margin: 0 auto 18px;
       border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid #fff;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    }
-
-    .photo img {
-      width: 100%;
-      height: 100%;
       object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.6);
+      margin-bottom: 15px;
     }
 
     h1 {
-      font-size: 1.9rem;
-      margin-bottom: 10px;
-      min-height: 2.4rem;
+      font-size: 2rem;
+      margin: 10px 0;
     }
 
-    .heart {
-      font-size: 2.4rem;
-      margin: 10px 0;
-      animation: beat 1.5s infinite;
+    .typing {
+      color: #fff3b0;
+      font-weight: 600;
     }
 
     p {
-      font-family: 'Noto Serif Tamil', serif;
       font-size: 1.05rem;
       line-height: 1.7;
-      margin: 14px 0 22px;
-      opacity: 0.95;
+      margin-top: 15px;
+      font-family: 'Noto Serif Tamil', serif;
     }
 
     .buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      margin-top: 10px;
+      margin-top: 25px;
     }
 
     button {
+      padding: 10px 22px;
       border: none;
-      padding: 12px 22px;
+      border-radius: 25px;
       font-size: 1rem;
-      border-radius: 30px;
       cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    button:hover {
-      transform: scale(1.08);
+      margin: 8px;
     }
 
     .yes {
       background: #fff;
-      color: #ff4f7b;
+      color: #ff4d6d;
       font-weight: 600;
     }
 
     .no {
-      background: rgba(255,255,255,0.25);
+      background: transparent;
       color: #fff;
+      border: 2px solid #fff;
+      position: relative;
     }
 
-    .message {
-      margin-top: 18px;
-      font-size: 1.1rem;
-      font-weight: 500;
-      display: none;
-    }
-
-    @keyframes beat {
-      0%,100% { transform: scale(1); }
-      50% { transform: scale(1.25); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(25px); }
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Floating hearts */
-    .float {
-      position: absolute;
-      bottom: -20px;
-      font-size: 18px;
-      animation: up 6s linear infinite;
-      opacity: 0.6;
-    }
-
-    @keyframes up {
-      from { transform: translateY(0); opacity: 0.6; }
-      to { transform: translateY(-110vh); opacity: 0; }
     }
   </style>
 </head>
+
 <body>
 
-<!-- Music -->
-<audio id="bgm" autoplay muted loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
-</audio>
-
-<div class="container">
-
+<div class="card">
   <!-- Saranya Photo -->
-  <div class="photo">
-    <img src="saranya.jpg" alt="Saranya">
-  </div>
+  <img src="saranya.jpg" alt="Saranya">
 
-  <!-- Typing Name -->
-  <h1 id="typing"></h1>
-
-  <div class="heart">❤️</div>
+  <h1>Hey <span class="typing" id="typing"></span> 💖</h1>
 
   <p>
     உன்ன பாக்குற ஒவ்வொரு நாளும்  
-    என் வாழ்க்கை கொஞ்சம் கொஞ்சமா  
-    love story ஆகுது…  
+    என் life ல ஒரு அழகான chapter மாதிரி feel ஆகுது…  
     <br><br>
-    Saranya,  
-    என் life-ல special place  
-    நீ தான் 💖
+    So… ஒரு simple question 😌
+  </p>
+
+  <p style="font-size:1.2rem;font-weight:600;">
+    Will you be my Valentine? 💘
   </p>
 
   <div class="buttons">
-    <button class="yes" onclick="sayYes()">YES 😊</button>
-    <button class="no" onclick="sayNo()">NO 🙈</button>
+    <button class="yes" onclick="yesClicked()">Yes 💖</button>
+    <button class="no" onmouseover="moveNo()">No 🙈</button>
   </div>
-
-  <div class="message" id="msg"></div>
-
 </div>
 
 <script>
-  /* Typing animation */
-  const text = "Hey Saranya 💖";
+  /* Typing Animation */
+  const text = "Saranya";
   let i = 0;
-  const typing = document.getElementById("typing");
-
-  function typeEffect() {
+  function type() {
     if (i < text.length) {
-      typing.innerHTML += text.charAt(i);
+      document.getElementById("typing").innerHTML += text.charAt(i);
       i++;
-      setTimeout(typeEffect, 120);
+      setTimeout(type, 180);
     }
   }
-  typeEffect();
+  type();
 
-  /* Buttons */
-  function sayYes() {
-    document.getElementById("msg").style.display = "block";
-    document.getElementById("msg").innerHTML =
-      "YAYYY 🥹💖<br>Indha smile-ku naan lifetime reason ah iruppen 😌";
+  /* Yes Button */
+  function yesClicked() {
+    document.body.innerHTML = `
+      <div style="text-align:center;color:white;font-family:Poppins">
+        <h1>Yayyy 💖🥰</h1>
+        <p style="font-size:1.3rem;">
+          You just made my world brighter, Saranya ✨
+        </p>
+      </div>`;
   }
 
-  function sayNo() {
-    document.getElementById("msg").style.display = "block";
-    document.getElementById("msg").innerHTML =
-      "Paravala 😄<br>Indha page-a thirumba thirumba paathaa YES maarum 😉";
+  /* No Button escape */
+  function moveNo() {
+    const btn = document.querySelector('.no');
+    btn.style.position = 'absolute';
+    btn.style.left = Math.random() * 70 + '%';
+    btn.style.top = Math.random() * 70 + '%';
   }
-
-  /* Enable music */
-  document.body.addEventListener("click", () => {
-    const bgm = document.getElementById("bgm");
-    bgm.muted = false;
-    bgm.play();
-  });
-
-  /* Floating hearts */
-  setInterval(() => {
-    const h = document.createElement("div");
-    h.className = "float";
-    h.innerHTML = "💗";
-    h.style.left = Math.random() * 100 + "vw";
-    h.style.animationDuration = (4 + Math.random() * 3) + "s";
-    document.body.appendChild(h);
-    setTimeout(() => h.remove(), 7000);
-  }, 600);
 </script>
 
 </body>
